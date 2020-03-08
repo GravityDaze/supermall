@@ -7,7 +7,9 @@ const routes = [
   {path: '/',redirect:'/home'},
   {path: '/home',name: 'Home',component: ()=>import('views/home/Home.vue')},
   {path: '/cart',name: 'cart',component: ()=>import('views/cart/Cart.vue')},
-  {path: '/category',name: 'category',component: ()=>import('views/category/Category.vue')}
+  {path: '/category',name: 'category',component: ()=>import('views/category/Category.vue')},
+  {path: '/detail/',name: 'detail',component: ()=>import('views/detail/Details.vue')},
+
 ]
 
 const router = new VueRouter({

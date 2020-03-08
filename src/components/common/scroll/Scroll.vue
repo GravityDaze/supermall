@@ -18,20 +18,34 @@ export default {
     this.$nextTick(() => {
       this.scroll = new Bscroll(this.$refs.wrapper, {
         click: true,
-        probeType:this.probeType
+        probeType: this.probeType,
+        pullUpLoad:this.pullUpLoad
       });
+
+      this.scroll.on("scroll", pos => {
+        this.$emit('scroll',pos)
+      });
+
+      this.scroll.on("pullingUp",()=>{
+        this.$emit('pullingUp')
+      })
+
     });
   },
   methods: {
     scrollTo(x, y, time = 500) {
       this.scroll.scrollTo(x, y, time);
-    }
+    },
   },
-  props:{
-      probeType:{
-          type:Number,
-          default:1
-      }
+  props: {
+    probeType: {
+      type: Number,
+      default: 1
+    },
+    pullUpLoad:{
+      type:Boolean,
+      default:false
+    }
   }
 };
 </script>
