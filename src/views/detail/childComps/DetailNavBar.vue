@@ -1,5 +1,8 @@
 <template>
       <nav-bar class="detail-nav">
+          <div slot="left" @click="back">
+              <div>&lt;</div>
+          </div>
         <div slot="center" class="nav-title">
           <div v-for="(item,index) in title" :key="item" @click="titleClick(index)" :class="{active:index===curIndex}">{{item}}</div>
         </div>
@@ -22,6 +25,9 @@ export default {
         titleClick(index){
             this.curIndex=index
             this.$emit('tabClick',index)
+        },
+        back(){
+            this.$router.go(-1)
         }
     }
 }

@@ -1,15 +1,17 @@
-import{
-ADD_TO_CART,
-ADD_COUNTER
-}from './mutation-types'
+import {
+    ADD_TO_CART,
+    ADD_COUNTER
+} from './mutation-types'
 
 export default {
-[ADD_TO_CART](state,payload){
+    [ADD_TO_CART](state, payload) {
 
-    payload.count++
+        state.cartList.push(payload)
+        payload.isCheck=true
+        payload.count = 1
     },
 
-[ADD_COUNTER](state,payload){
-        state.cartList.push(payload)
+    [ADD_COUNTER](state, payload) {
+        payload.count += 1
     }
 }

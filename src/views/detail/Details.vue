@@ -27,6 +27,7 @@ import DetailBottomBar from "./childComps/DetailBottomBar"
 import GoodsList from 'components/content/goods/GoodsList'
 import BackTop from "components/content/backtop/BackTop";
 import Scroll from "components/common/scroll/Scroll";
+// import Toast from 'components/common/toast'
 // 网络请求
 import { getGoodsInfo,getRecommend } from "network/detail";
 // 类
@@ -127,11 +128,17 @@ export default {
          }
       }
     },
-    addCart(){
-      
-
-
-      
+     async addCart(){
+      const product = {};
+        product.image = this.topImages[0];
+        product.title = this.goods.title;
+        product.desc = this.goods.desc;
+        product.price = this.goods.realPrice;
+        product.iid = this.iid;
+        product.newPrice = this.goods.newPrice;
+        //将商品添加购物车里 vuex
+        const res = await this.$store.dispatch('addCart',product);
+        console.log(this.$toast.show())
     }
 
 
@@ -149,7 +156,7 @@ export default {
     DetailBottomBar,
     GoodsList,
     BackTop,
-    Scroll
+    Scroll,
   }
 };
 </script>

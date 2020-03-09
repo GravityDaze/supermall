@@ -10,7 +10,7 @@
     </tab-item>
     <tab-item path="/cart" activeColor="#ddd">
       <img slot="item-icon" src="@/assets/img/tabbar/favorites-fill.svg" alt />
-      <div slot="item-text" class="tab-text">收藏</div>
+      <div slot="item-text" class="tab-text">购物车</div>
     </tab-item>
     <tab-item path="/category">
       <img slot="item-icon" src="@/assets/img/tabbar/bussiness-man.svg" alt />
